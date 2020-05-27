@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    <script>
+// Check browser support
+if (typeof(Storage) !== "undefined") {
+
+  // Retrieve
+  document.getElementById("td2").innerHTML = sessionStorage.getItem("td2");
+  document.getElementById("td3").innerHTML = sessionStorage.getItem("td3");
+  document.getElementById("td4").innerHTML = sessionStorage.getItem("td4");
+
+
+}
+</script>
+    <div class="container">
+    {% for document in object_list %}
+        <p><a href="catalog/{{ document.name }}">{{ document.name }}</a> :
+    <a href="{{ document.pdf.url }}">Click here to download</a></p>
+        {% empty %}
+            <p>There are no pdf's available currently <br> Please try again later</p>
+    {% endfor %}
+    </div>
+{% endblock content %}

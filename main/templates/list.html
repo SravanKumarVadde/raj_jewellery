@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<script>
+// Check browser support
+if (typeof(Storage) !== "undefined") {
+
+  // Retrieve
+  document.getElementById("td2").innerHTML = sessionStorage.getItem("td2");
+  document.getElementById("td3").innerHTML = sessionStorage.getItem("td3");
+  document.getElementById("td4").innerHTML = sessionStorage.getItem("td4");
+
+}</script>
+    <section id="categories">
+    <div id="container" class="categories">
+        <h1 style="font-variant: all-petite-caps">{% if category %}{{ category.name }}{% else %}Products{% endif %}</h1>
+          <div class="row">
+              {% for product in page_obj %}
+                  <div class="col-xs-4">
+                      <div class="thumbnail" >
+                          <a href="{{ product.get_absolute_url }}">
+                          <img class="img" src="{{ product.thumbnail.url }}" class="card-img-top" alt="cover"></a>
+                          <div class="caption">
+                              <p style="color:darkblue;">Weight : {{ product.weight1 }} - {{ product.weight2 }} gms</p>
+                          </div>
+                      </div>
+                  </div>
+                  {% empty %}
+                  <p style="font-size: 2rem; font-weight: 300; text-align:center;">Currently there is nothing to display here...</p>
+              {% endfor %}
+          </div>
+        <div >
+
+            <ul class="pagination">
+
+                {% if page_obj.has_previous %}
+                    <li><a href="?page=1">&laquo; first</a></li>
+                    <li><a href="?page={{ page_obj.previous_page_number }}">previous</a></li>
+                {% endif %}
+                <li class="active"><a href="#">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</a></li>
+                {% if page_obj.has_next %}
+                    <li><a href="?page={{ page_obj.next_page_number }}">next</a></li>
+                    <li><a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a></li>
+                {% endif %}
+
+            </ul>
+        </div>
+    </div>
+    </section>
+     <script>
+(function(){
+
+if(
+    (function() {
+    const toMatch = [
+        /Android/i,
+        /webOS/i,
+        /iPhone/i,
+        /iPad/i,
+        /iPod/i,
+        /BlackBerry/i,
+        /Windows Phone/i
+    ];
+
+    return toMatch.some((toMatchItem) => {
+        return navigator.userAgent.match(toMatchItem);
+    });
+})()
+){
+    document.getElementById("container").className="categories" ;
+}}
+
+)();
+</script>
+{% endblock content %}

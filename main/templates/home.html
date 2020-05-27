@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+
+    </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="{{ c1.image.url }}" alt="Banner-Image1"  height="700" style="height:700px;">
+
+      </div>
+
+      <div class="item">
+        <img src="{{ c2.image.url }}" alt="Banner-Image2"  height="700" style="height:700px;">
+      </div>
+
+      <div class="item">
+        <img src="{{ c3.image.url }}" alt="Banner-Image3"  height="700" style="height:700px;">
+      </div>
+
+    </div>
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+
+</div>
+<div class="container text-center">
+	 <img class="logo" src="{% static "img/p1.jpg" %}">
+  <h2 class="heading">RAJ JEWELLARY</h2>
+  <h4 class="subheading">Indian Traditionals</h4>
+  <p>Jewellery is a complicated product, because tastes vary even within the same state. What helps us here is the huge variety of products we stock from artisans across the country. We carefully and painstakingly select the designs of our products and customise them according to the demands of the consumer demography of each market we step into as India is such a vast country with diverse tastes.We have something for everyone. Highly skilled craftsmen create our products along with stringent quality control measures which creates that perfection in the products we sell.</p>
+  <p>We have always visualized everything on a large scale. We always enjoyed making the road and never thought of following a trail. Massive marketing campaigns and launches, path-breaking ads which were never-before seen in jewellery advertising, multi-storey large format jewellery showrooms, same-day multi-launch ceremonies and events. We have always worked with the best to endorse our brand at all levels, our brand ambassadors come from very respected families in their states, and they are known worldwide among their diaspora. We introduced a lot to jewellery retailing - customer loyalty programs, price tags and many such things. We have always believed in thinking ahead of the customer, in his interest, for his interest.</p>
+  <p>We have immense gratitude towards everybody who set their feet into a Raj store and we would always want everyone to continue to be a part of this vibrant family at Raj and we will do anything and everything for that.</p>
+</div>
+<script>
+// Check browser support
+if (typeof(Storage) !== "undefined") {
+  // Store
+  var td2 = document.getElementById('td2').innerHTML;
+  var td3 = document.getElementById('td3').innerHTML;
+  var td4 = document.getElementById('td4').innerHTML;
+  sessionStorage.setItem("td2", td2);
+  sessionStorage.setItem("td3", td3);
+  sessionStorage.setItem("td4", td4);
+
+} else {
+  document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+}
+</script>
+{% endblock content %}

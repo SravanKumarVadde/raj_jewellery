@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<script>
+// Check browser support
+if (typeof(Storage) !== "undefined") {
+
+  // Retrieve
+  document.getElementById("td2").innerHTML = sessionStorage.getItem("td2");
+  document.getElementById("td3").innerHTML = sessionStorage.getItem("td3");
+  document.getElementById("td4").innerHTML = sessionStorage.getItem("td4");
+
+
+}
+</script>
+    <div class="container search-result">
+    {% for product in search_result %}
+        <div class="col-xs-4">
+            <div class="thumbnail" >
+                <a href="{{ product.get_absolute_url }}">
+                    <img class="img card-img-top" src="{{ product.thumbnail.url }}"  alt="cover"></a>
+                <div class="caption">
+                    <p class="card-text">{{ product.name }}</p>
+                    <p>weight : {{ product.weight1 }} - {{ product.weight2 }} gms</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+            <p style="font-size: 2rem; font-weight: 300">The model you searched for is not Available<br>
+                Please check the model name you searched for and Try again</p>
+    {% endfor %}
+
+    </div>
+    <div>
+    <form style="padding-left:10%; padding-top:20px;" class="form-inline my-2 my-lg-0" method="get" action="{% url 'main:search' %}">
+              <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search for models" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form></div>
+
+{% endblock content %}

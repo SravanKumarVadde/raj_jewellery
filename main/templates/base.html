@@ -1,0 +1,102 @@
+{%  load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+          RAJ JEWELLERY
+        </title>
+
+
+        <link rel="stylesheet" type="text/css" href="{% static "css/loader.css" %}">
+    	<link rel="stylesheet" type="text/css" href="{% static "css/style1.css" %}">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script>(function($){
+            'use strict';
+            $(window).on('load', function () {
+                if ($(".pre-loader").length > 0)
+                {
+                    $(".pre-loader").delay(150).fadeOut("slow");
+                }
+            });
+        })(jQuery)
+        </script>
+    </head>
+    <body>
+    <div class=pre-loader>
+        <img src="{% static "img/loader.jpg" %}">
+        <div class="ring">
+            <span></span>
+        </div>
+
+    </div>
+    <section id="nav-bar">
+    <nav class="navbar ">
+        <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url "main:home" %}">RAJ JEWELLERY</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url "main:home" %}">HOME</a></li>
+                <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">JEWELLERY
+                <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="{% url "main:home" %}products/chains ">NECKLACE AND LONG CHAINS</a></li>
+                    <li><a href="{% url "main:home" %}products/earrings ">EARRINGS</a></li>
+                    <li><a href="{% url "main:home" %}products/pendents ">DOLLARS</a></li>
+                    <li><a href="{% url "main:home" %}products/rings ">RINGS</a></li>
+                    <li><a href="{% url "main:home" %}products/mangalsutras ">MAGALSUTRAS</a></li>
+                    <li><a href="{% url "main:home" %}products/nosepins ">NOSEPINS</a></li>
+                    <li><a href="{% url "main:home" %}products/bangles ">BANGLES AND BRACELETS</a></li>
+                    <li><a href="{% url "main:home" %}products/gifts ">GIFTS AND OTHERS</a></li>
+                </ul>
+                </li>
+                <li><a href="{% url "main:catolog" %}">CATALOGS</a></li>
+                <li class="dropdown" >
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">ABOUT US
+                        <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a>What'sApp</a></li>
+                    <li><a>Prashanth : 7382345566 </a></li>
+                    <li><a>Sashi Kanth : 9866311420 </a></li>
+                </ul></li>
+                <li><a href="{% url "main:search" %}"><span class="glyphicon glyphicon-search"></span></a></li>
+            </div>
+            </div>
+        </div>
+    </nav>
+    </section>
+    <div class="wrap">
+    <ul style="list-style: none; margin: 0;">
+        <li style="margin-top: 8px;"><p>&nbspGold Rate : <a  id="td2" href="#" style="color:inherit">{{ td2 }}</a></p></li>
+        <li><p>&nbspSilver Rate : <a id="td3" href="#" style="color:inherit">{{ td3 }}</a></p></li>
+        <li><p id="td4">&nbsp{{ td4 }}</p></li>
+    </ul></div>
+    {% block content %}
+    {% endblock content %}
+    <section>
+<style>
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:#2d2d30;
+  color: #D4AF37;
+  text-align: center;
+}
+</style>
+<div class="footer">
+ <p> © 2020 <a href="#" style="text-decoration:none;  color: inherit; "> </a> </p>
+</div></section>
+    </body>
+</html>

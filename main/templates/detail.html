@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<script>
+// Check browser support
+if (typeof(Storage) !== "undefined") {
+
+  // Retrieve
+  document.getElementById("td2").innerHTML = sessionStorage.getItem("td2");
+  document.getElementById("td3").innerHTML = sessionStorage.getItem("td3");
+  document.getElementById("td4").innerHTML = sessionStorage.getItem("td4");
+
+
+}
+</script>
+    <div class="product-detail">
+    <div class="row">
+    <table>
+
+        <tr>
+    <td><div class="col-image"><a href="{{ product.image.url }}"><img src="{{ product.image.url }}"></a></div></td>
+
+        <td><div class="col-details">
+            <h2>Model : <br>{{ product.name }}</h2>
+            <h2>Weight : <br>{{ product.weight1 }} - {{ product.weight2 }} gms</h2>
+            <h3><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></h3>
+        </div></td>
+        </tr>
+    </table></div>
+    </div>
+{% endblock content %}

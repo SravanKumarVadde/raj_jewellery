@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <script>
+// Check browser support
+if (typeof(Storage) !== "undefined") {
+
+  // Retrieve
+  document.getElementById("td2").innerHTML = sessionStorage.getItem("td2");
+  document.getElementById("td3").innerHTML = sessionStorage.getItem("td3");
+  document.getElementById("td4").innerHTML = sessionStorage.getItem("td4");
+
+}
+</script>
+    <div class="table">
+    <table>
+        <tr>
+            <td>
+                <img style="width:600px; vertical-align:middle;" src="{% static "img/p1.jpg" %}">
+            </td>
+            <td>
+                <h1 style="font-weight:400;
+                font-size:36px; color:aliceblue;
+                text-shadow:6px 2px 5px 6px rgba(0,0,0,0.5);">RAJ JEWELLERY</h1>
+                <p></p>
+            </td>
+        </tr>
+
+    </table>
+    </div>
+{% endblock content %}
